@@ -1,10 +1,11 @@
-import { signInUser, signInWithGooglePopup } from "../../firebase";
+import { signInWithGooglePopup } from "../../firebase/auth";
+import { signInUser } from "../../firebase/firestore";
 
 const SignIn = () => {
   const signInWithGoogle = async () => {
     const data = await signInWithGooglePopup();
     await signInUser(data.user);
-    // i get data.user which has all the necessary info (accessToken, gmail data about me, and uid)
+    // data.user which has all the necessary info (accessToken, gmail data about me, and uid)
     // we can use uid as sort of unique id to store user
   };
 
